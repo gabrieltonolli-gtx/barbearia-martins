@@ -146,15 +146,39 @@
     /* parallax do hero */
     if (has('.hero__media')) gsap.to('.hero__media', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
 
-    /* marquee acelera com a rolagem */
-    var track = document.querySelector('.marquee__track');
-    if (track) window.ScrollTrigger.create({
-      trigger: '.marquee', start: 'top bottom', end: 'bottom top',
-      onUpdate: function (self) {
-        var v = Math.min(Math.abs(self.getVelocity()) / 800, 3);
-        track.style.animationDuration = (32 / (1 + v)) + 's';
-      }
-    });
+    /* faixa (marquee): laço contínuo no GSAP. A rolagem só muda a velocidade (timeScale)
+       com transição suave; a posição nunca é recalculada, então a faixa não pula nem trava. */
+    var cleanups = [];
+    var marquee = document.querySelector('.marquee');
+    var track = marquee && marquee.querySelector('.marquee__track');
+    if (track) {
+      marquee.classList.add('marquee--gsap');
+      var loop = gsap.fromTo(track, { xPercent: 0 }, { xPercent: -50, duration: 32, ease: 'none', repeat: -1 });
+      var hovering = false;
+      /* ao rolar com a roda, a faixa pode passar por baixo do cursor parado; o navegador não avisa
+         quando ela sai de baixo dele, então a pausa é conferida pelo estado real de :hover */
+      var isHover = function () { return finePointer && marquee.matches(':hover'); };
+      var settle = function () { hovering = isHover(); gsap.to(loop, { timeScale: hovering ? 0 : 1, duration: 0.9, ease: 'power2.out', overwrite: true }); };
+      var settleLater = gsap.delayedCall(0.25, settle).pause();
+      window.ScrollTrigger.create({
+        trigger: marquee, start: 'top bottom', end: 'bottom top',
+        onUpdate: function (self) {
+          var boost = 1 + Math.min(Math.abs(self.getVelocity()) / 1200, 2.5);
+          gsap.to(loop, { timeScale: boost, duration: 0.35, ease: 'power2.out', overwrite: true });
+          settleLater.restart(true);
+        }
+      });
+      var enter = function () { hovering = true; settle(); };
+      var leave = function () { hovering = false; settle(); };
+      marquee.addEventListener('mouseenter', enter);
+      marquee.addEventListener('mouseleave', leave);
+      cleanups.push(function () {
+        marquee.classList.remove('marquee--gsap');
+        marquee.removeEventListener('mouseenter', enter);
+        marquee.removeEventListener('mouseleave', leave);
+        settleLater.kill();
+      });
+    }
 
     /* ritual da barba: linha listrada enche com a rolagem */
     if (has('.steps')) {
@@ -174,7 +198,11 @@
     if (has('.close__title')) gsap.from('.close__title span', { yPercent: 60, autoAlpha: 0, duration: 1, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: '.close', start: 'top 70%', once: true } });
 
     /* gancho para animações próprias de cada página */
-    if (typeof window.pageMotion === 'function') return window.pageMotion(gsap, ctx.conditions);
+    if (typeof window.pageMotion === 'function') {
+      var pageCleanup = window.pageMotion(gsap, ctx.conditions);
+      if (typeof pageCleanup === 'function') cleanups.push(pageCleanup);
+    }
+    return function () { cleanups.forEach(function (fn) { fn(); }); };
   });
 
   window.addEventListener('load', function () { window.ScrollTrigger.refresh(); });
