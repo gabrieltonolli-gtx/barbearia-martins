@@ -148,10 +148,13 @@ body.menu-open{overflow:hidden}
 
 /* ---------- marquee (21st.dev pattern) ---------- */
 .marquee{overflow:hidden;background:var(--red);color:#fff;border-block:1px solid rgba(255,255,255,.15)}
-.marquee__track{display:flex;align-items:center;gap:28px;width:max-content;padding:16px 0;animation:marquee 32s linear infinite}
+.marquee__track{display:flex;align-items:center;width:max-content;padding:16px 0;animation:marquee 32s linear infinite}
+/* margem (e não gap) em cada item: as duas metades ficam com a mesma largura e o laço emenda sem pulo */
+.marquee__track>*{flex:none;margin-right:28px}
+.marquee--gsap .marquee__track{animation:none;will-change:transform}
 .marquee span{font-family:var(--display);font-size:clamp(1.6rem,3.4vw,2.4rem);letter-spacing:.04em;text-transform:uppercase;line-height:1}
 .marquee i{width:34px;height:12px;border-radius:99px;background:repeating-linear-gradient(-45deg,#fff 0 5px,var(--wine) 5px 10px)}
-.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee:not(.marquee--gsap):hover .marquee__track{animation-play-state:paused}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* ---------- cards + spotlight (21st.dev pattern) ---------- */
@@ -270,20 +273,21 @@ body.menu-open{overflow:hidden}
 .tips__head p{color:#6e6352;font-size:.9rem}
 .tips__head a{color:#8a6a22;font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .tips__track{display:grid;gap:14px;grid-template-columns:1fr}
-.tip{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:220px;padding:26px;border-radius:var(--radius-lg);background:#fff;border:1px solid rgba(201,162,75,.45);overflow:hidden}
-.tip__n{font-family:var(--display);font-size:4.4rem;line-height:.85;background:linear-gradient(180deg,#e0b44d,#7a5a1c);-webkit-background-clip:text;background-clip:text;color:transparent}
-.tip h4{margin:0;font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1;text-transform:uppercase}
+.tip{position:relative;display:flex;flex-direction:column;border-radius:var(--radius-lg);background:#fff;border:1px solid rgba(201,162,75,.45);overflow:hidden}
+.tip__img{margin:0;aspect-ratio:16/10;overflow:hidden;background:#14110b}
+.tip__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.tip:hover .tip__img img{transform:scale(1.03)}
+.tip__text{position:relative;padding:0 24px 26px}
+.tip__n{display:inline-block;margin-top:-30px;padding:6px 14px 0;border-radius:14px 14px 0 0;background:#fff;font-family:var(--display);font-size:3.4rem;line-height:.9}
+.tip__n{background-image:linear-gradient(180deg,#e0b44d,#7a5a1c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tip__text::before{content:"";position:absolute;left:24px;top:-30px;width:86px;height:34px;border-radius:14px 14px 0 0;background:#fff}
+.tip__text .tip__n{position:relative}
+.tip h4{margin:6px 0 0;font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1;text-transform:uppercase}
 .tip p{margin:8px 0 0;color:#4d4436;font-size:1rem;line-height:1.5}
-.tip--photo{padding:0;border:0;min-height:340px;background:#14110b}
-.tip--photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;opacity:.88}
-.tip--photo .tip__body{position:relative;margin-top:auto;padding:26px;background:linear-gradient(0deg,rgba(11,10,8,.94),rgba(11,10,8,0));color:#f5f1ea}
-.tip--photo p{color:#e6dfd3}
-.tip--photo .tip__n{background:linear-gradient(180deg,#f0cc72,#b58a2f);-webkit-background-clip:text;background-clip:text}
 @media (min-width:768px){.kids__offers{grid-template-columns:1fr 1fr}.tips__track{grid-template-columns:1fr 1fr}}
 /* trilho horizontal fixado (só no computador, ativado pelo JS) */
 .tips--h .tips__track{display:flex;width:max-content;gap:20px}
-.tips--h .tip{width:min(380px,30vw);min-height:420px;flex:none}
-.tips--h .tip--photo{width:min(440px,34vw)}
+.tips--h .tip{width:min(380px,29vw);flex:none}
 
 /* instagram */
 .insta{padding:clamp(80px,12vw,140px) 0;background:var(--bg-2);border-top:1px solid var(--line)}
