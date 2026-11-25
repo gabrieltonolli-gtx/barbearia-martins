@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Barbearia Martins · Urbanova, São José dos Campos</title>
+  <meta name="description" content="Barbearia em Urbanova, São José dos Campos: degradê, corte social, barba na toalha quente e sobrancelha. Nota 4,9 no Booksy. Agende online.">
+  <meta name="theme-color" content="#0c0a0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Barbearia Martins · Urbanova">
+  <meta property="og:description" content="Degradê na régua, barba na toalha quente e sobrancelha. Agende pelo Booksy.">
+  <meta property="og:image" content="assets/img/photo-f115207178.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" href="assets/img/logo-martins.jpg">
+  <link rel="apple-touch-icon" href="assets/img/logo-martins.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BarberShop",
+    "name": "Barbearia Martins",
+    "image": "assets/img/logo-martins.jpg",
+    "telephone": "+55 12 98865-4803",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Shishima Hifumi, 2204",
+      "addressLocality": "São José dos Campos",
+      "addressRegion": "SP",
+      "postalCode": "12244-000",
+      "addressCountry": "BR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -23.20377, "longitude": -45.9438499 },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "241" },
+    "priceRange": "R$ 10 – R$ 140",
+    "sameAs": [
+      "https://www.instagram.com/barbeariamartinsurbanova/",
+      "https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos"
+    ]
+  }
+  </script>
+</head>
+<body>
+<!--
+  Barbearia Martins — site institucional estático.
+  Animações: GSAP + ScrollTrigger (hero, ciência fixada, ritual), Motion (contagens, revelações, barras),
+  padrões de componentes inspirados no 21st.dev (spotlight card, marquee, botão magnético).
+  Fotos: banco Wikimedia Commons (licenças livres, créditos no rodapé). Nenhuma foto de cliente real.
+-->
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img src="assets/img/logo-martins.jpg" alt="" width="150" height="150">
+    <div class="loader__pole"><span></span></div>
+  </div>
+</div>
+
+<header class="nav" id="topo">
+  <div class="wrap nav__row">
+    <a class="nav__brand" href="#inicio" aria-label="Barbearia Martins, início">
+      <img src="assets/img/logo-martins.jpg" alt="" width="48" height="48">
+      <span>Barbearia<b>Martins</b></span>
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#ciencia">Ciência do fio</a>
+      <a href="#barba">Barba</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#local">Como chegar</a>
+    </nav>
+    <a class="btn btn--red btn--sm nav__cta magnetic" href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener">Agendar horário</a>
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <nav class="wrap menu__list" aria-label="Menu">
+    <a href="#servicos">Serviços e preços</a>
+    <a href="#ciencia">Ciência do fio</a>
+    <a href="#barba">Barba na toalha quente</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#local">Como chegar</a>
+  </nav>
+  <div class="wrap menu__foot">
+    <a class="btn btn--red" href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener">Agendar no Booksy</a>
+    <div class="social">
+      <a href="https://www.instagram.com/barbeariamartinsurbanova/" target="_blank" rel="noopener" aria-label="Instagram"><img class="ic-ink" src="assets/icons/instagram.svg" alt="" width="28" height="28"></a>
+      <a href="https://wa.me/5512988654803?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Barbearia%20Martins." target="_blank" rel="noopener" aria-label="WhatsApp"><img src="assets/icons/whatsapp.svg" alt="" width="28" height="28"></a>
+    </div>
+  </div>
+</div>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__media">
+      <picture>
+        <source media="(max-width: 639px)" srcset="assets/img/photo-f115207178-960.jpg">
+        <img src="assets/img/photo-f115207178.jpg" srcset="assets/img/photo-f115207178-960.jpg 960w, assets/img/photo-f115207178.jpg 1280w" sizes="100vw" width="1280" height="853" alt="Salão de barbearia escuro com cadeira de barbeiro, espelhos e luz natural entrando pela janela" fetchpriority="high" data-source="stand-in">
+      </picture>
+    </div>
+    <div class="hero__shade"></div>
+    <div class="wrap hero__content">
+      <p class="eyebrow hero__eyebrow"><span class="dot"></span>Urbanova · São José dos Campos</p>
+      <h1 class="hero__title">
+        <span class="line"><span>A barbearia de Urbanova</span></span>
+        <span class="line"><span>onde o degradê</span></span>
+        <span class="line"><span>sai <em>na régua.</em></span></span>
+      </h1>
+      <p class="hero__lead">Degradê, social, barba na toalha quente e sobrancelha. Você marca pelo Booksy em menos de um minuto, sem fila e sem ligação.</p>
+      <div class="hero__actions">
+        <a class="btn btn--red magnetic" href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener">
+          Agendar no Booksy
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#servicos">Ver serviços e preços</a>
+      </div>
+      <ul class="hero__facts">
+        <li><strong>4,9</strong><span>nota no Booksy</span></li>
+        <li><strong>241</strong><span>avaliações</span></li>
+        <li><strong>R$ 30</strong><span>corte a partir de</span></li>
+      </ul>
+    </div>
+    <div class="hero__razor" aria-hidden="true"></div>
+    <a class="hero__scroll" href="#servicos" aria-label="Rolar para os serviços"><span></span></a>
+  </section>
+
+  <!-- MARQUEE (padrão 21st.dev) -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Degradê</span><i></i><span>Corte social</span><i></i><span>Barba na toalha quente</span><i></i><span>Sobrancelha</span><i></i><span>Pezinho</span><i></i><span>Pacotes mensais</span><i></i>
+      <span>Degradê</span><i></i><span>Corte social</span><i></i><span>Barba na toalha quente</span><i></i><span>Sobrancelha</span><i></i><span>Pezinho</span><i></i><span>Pacotes mensais</span><i></i>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Serviços e preços</p>
+        <h2 class="sec-title">Tabela de preços <span>sem surpresa no caixa.</span></h2>
+        <p class="sec-lead">Os mesmos valores que aparecem no Booksy. Escolhe o serviço, escolhe o barbeiro e o horário fica garantido.</p>
+      </div>
+
+      <div class="services__grid">
+        <figure class="services__photo">
+          <img src="assets/img/ig-materiais-415.jpg" sizes="(max-width: 1023px) 100vw, 30vw" width="415" height="755" alt="Bancada da Barbearia Martins com máquina, produtos e kit de tesouras e navalhas" loading="lazy" decoding="async" data-source="client">
+        </figure>
+
+        <article class="card spot reveal">
+          <header class="card__head"><h3>Cabelo</h3><span class="tag">20 a 30 min</span></header>
+          <ul class="price">
+            <li><div><b>Corte degradê</b><small>Graduação nas laterais, o corte mais detalhado</small></div><span>R$ 45</span></li>
+            <li><div><b>Corte social</b><small>Mais simples, sem graduação nas laterais</small></div><span>R$ 40</span></li>
+            <li><div><b>Máquina, mais de um pente</b><small>Sem graduação</small></div><span>R$ 35</span></li>
+            <li><div><b>Máquina, um pente só</b><small>Rápido e baixo</small></div><span>R$ 30</span></li>
+            <li><div><b>Pezinho</b><small>Acabamento da nuca e laterais</small></div><span>R$ 15</span></li>
+          </ul>
+        </article>
+
+        <article class="card spot reveal">
+          <header class="card__head"><h3>Barba e sobrancelha</h3><span class="tag">10 a 30 min</span></header>
+          <ul class="price">
+            <li><div><b>Barba com toalha quente</b><small>Toalha, espuma, navalha e finalização</small></div><span>R$ 35</span></li>
+            <li><div><b>Sobrancelha</b><small>Limpeza e alinhamento</small></div><span>R$ 10</span></li>
+            <li><div><b>Degradê + sobrancelha</b><small>30 min</small></div><span>R$ 50</span></li>
+            <li><div><b>Social + sobrancelha</b><small>30 min</small></div><span>R$ 45</span></li>
+          </ul>
+        </article>
+
+        <article class="card spot reveal">
+          <header class="card__head"><h3>Combos</h3><span class="tag">1 hora</span></header>
+          <ul class="price">
+            <li><div><b>Degradê + barba</b><small>Barba com toalha quente</small></div><span>R$ 65</span></li>
+            <li><div><b>Degradê + sobrancelha + barba</b><small>O pacote completo</small></div><span>R$ 70</span></li>
+            <li><div><b>Social + barba</b><small>Barba com toalha quente</small></div><span>R$ 60</span></li>
+            <li><div><b>Social + sobrancelha + barba</b><small>Completo no social</small></div><span>R$ 65</span></li>
+          </ul>
+        </article>
+
+        <article class="card card--red spot reveal">
+          <header class="card__head"><h3>Pacotes do mês</h3><span class="tag tag--light">Economize até R$ 40</span></header>
+          <ul class="price">
+            <li><div><b>4 cortes degradê</b><small>Avulso sairia R$ 180</small></div><span>R$ 140</span></li>
+            <li><div><b>2 cortes degradê</b><small>Avulso sairia R$ 90</small></div><span>R$ 80</span></li>
+            <li><div><b>4 cortes social</b><small>Avulso sairia R$ 160</small></div><span>R$ 120</span></li>
+            <li><div><b>2 cortes social</b><small>Avulso sairia R$ 80</small></div><span>R$ 70</span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="services__cta">
+        <a class="btn btn--red magnetic" href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener">Escolher serviço no Booksy</a>
+        <p>Estacionamento e Wi-Fi no local.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIÊNCIA DO FIO -->
+  <section class="science" id="ciencia">
+    <div class="wrap science__pin">
+      <div class="science__text">
+        <p class="eyebrow">Ciência do fio</p>
+        <h2 class="sec-title">O que o microscópio explica <span>sobre o seu corte.</span></h2>
+        <div class="science__progress" aria-hidden="true"><span class="science__count">01</span><i><b></b></i><span>04</span></div>
+
+        <div class="chapters">
+          <article class="chapter is-active">
+            <figure class="chapter__img"><img src="assets/img/photo-f3167801-960.jpg" srcset="assets/img/photo-f3167801-500.jpg 500w, assets/img/photo-f3167801-960.jpg 960w" sizes="100vw" width="960" height="722" alt="Fio de cabelo escuro visto ao microscópio" loading="lazy" decoding="async" data-source="stand-in"></figure>
+            <h3>O fio cresce cerca de 1 cm por mês.</h3>
+            <p>Parece pouco, mas no degradê faz diferença. Na lateral batida em 1 mm, duas semanas somam uns 5 mm e o contraste some antes do topo mudar. Por isso o degradê pede retorno a cada duas ou três semanas.</p>
+          </article>
+          <article class="chapter">
+            <figure class="chapter__img"><img src="assets/img/photo-f30081804-960.jpg" srcset="assets/img/photo-f30081804-500.jpg 500w, assets/img/photo-f30081804-960.jpg 960w" sizes="100vw" width="960" height="722" alt="Corte histológico de um folículo piloso visto ao microscópio" loading="lazy" decoding="async" data-source="stand-in"></figure>
+            <h3>Tudo nasce no folículo, embaixo da pele.</h3>
+            <p>A tesoura só alcança a parte morta do fio. Cortar mais vezes não engrossa o cabelo nem acelera o crescimento: isso é mito. O que o corte frequente faz é manter o desenho no lugar.</p>
+          </article>
+          <article class="chapter">
+            <figure class="chapter__img"><img src="assets/img/photo-f3167785-960.jpg" srcset="assets/img/photo-f3167785-500.jpg 500w, assets/img/photo-f3167785-960.jpg 960w" sizes="100vw" width="960" height="722" alt="Raiz de um fio de cabelo ao microscópio" loading="lazy" decoding="async" data-source="stand-in"></figure>
+            <h3>Perder fios no pente é normal.</h3>
+            <p>Cada fio tem um ciclo: cresce por anos, para e cai para dar lugar a outro. Dermatologistas consideram normal perder de 50 a 100 fios por dia. Entradas abrindo rápido ou falhas novas pedem um médico, não um corte.</p>
+          </article>
+          <article class="chapter">
+            <figure class="chapter__img"><img src="assets/img/photo-f118131237-960.jpg" srcset="assets/img/photo-f118131237-500.jpg 500w, assets/img/photo-f118131237-960.jpg 960w" sizes="100vw" width="960" height="960" alt="Lâminas de tesoura de aço damasco em detalhe" loading="lazy" decoding="async" data-source="stand-in"></figure>
+            <h3>Lâmina afiada corta limpo.</h3>
+            <p>Por fora, o fio é coberto por escamas sobrepostas, a cutícula. Lâmina cega amassa e abre a ponta; lâmina afiada corta reto e o acabamento dura mais. É por isso que tesoura e máquina passam por manutenção aqui.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="lens" aria-hidden="true">
+        <div class="lens__ring"></div>
+        <div class="lens__view">
+          <img class="is-active" src="assets/img/photo-f3167801-960.jpg" alt="" width="960" height="722" loading="lazy" decoding="async">
+          <img src="assets/img/photo-f30081804-960.jpg" alt="" width="960" height="722" loading="lazy" decoding="async">
+          <img src="assets/img/photo-f3167785-960.jpg" alt="" width="960" height="722" loading="lazy" decoding="async">
+          <img src="assets/img/photo-f118131237-960.jpg" alt="" width="960" height="960" loading="lazy" decoding="async">
+        </div>
+        <span class="lens__mag">×400</span>
+        <span class="lens__cross"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARBA -->
+  <section class="beard" id="barba">
+    <div class="wrap beard__grid">
+      <figure class="beard__photo">
+        <img src="assets/img/ig-toalha-quente-1080.jpg" srcset="assets/img/ig-toalha-quente-600.jpg 600w, assets/img/ig-toalha-quente-1080.jpg 1080w" sizes="(max-width: 1023px) 100vw, 50vw" width="1080" height="810" alt="Barbeiro da Barbearia Martins aplicando a toalha quente antes da barba" loading="lazy" decoding="async" data-source="client">
+      </figure>
+      <div class="beard__text">
+        <p class="eyebrow">Barba com toalha quente · R$ 35</p>
+        <h2 class="sec-title">Barba feita em quatro tempos, <span>do jeito antigo.</span></h2>
+        <p class="sec-lead">O calor amolece o pelo e a navalha desliza com menos atrito. Resultado: menos irritação e pele lisa por mais tempo.</p>
+        <ol class="steps">
+          <li><span>01</span><div><b>Toalha quente</b><p>Hidrata o fio e prepara a pele.</p></div></li>
+          <li><span>02</span><div><b>Espuma</b><p>Levanta o pelo e protege a lâmina.</p></div></li>
+          <li><span>03</span><div><b>Navalha</b><p>Contorno e alinhamento no detalhe.</p></div></li>
+          <li><span>04</span><div><b>Finalização</b><p>Pele fresca e barba alinhada.</p></div></li>
+        </ol>
+        <div class="steps__line" aria-hidden="true"><b></b></div>
+      </div>
+    </div>
+    <div class="wrap beard__strip">
+      <figure><img src="assets/img/photo-f148403508-960.jpg" srcset="assets/img/photo-f148403508-500.jpg 500w, assets/img/photo-f148403508-960.jpg 960w" sizes="50vw" width="960" height="640" alt="Frasco de óleo para barba ao lado de escova de cerdas" loading="lazy" decoding="async" data-source="stand-in"></figure>
+      <figure><img src="assets/img/photo-f118141964-960.jpg" srcset="assets/img/photo-f118141964-500.jpg 500w, assets/img/photo-f118141964-960.jpg 960w" sizes="50vw" width="960" height="539" alt="Tesoura profissional de barbeiro sobre fundo cinza" loading="lazy" decoding="async" data-source="stand-in"></figure>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section class="team" id="equipe">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Equipe</p>
+        <h2 class="sec-title">Escolha seu barbeiro <span>na hora de agendar.</span></h2>
+        <p class="sec-lead">No Booksy você vê a agenda de cada um e marca com quem já conhece o seu corte.</p>
+      </div>
+      <ul class="team__list">
+        <li class="spot reveal"><span class="team__initial">C</span><b>Carlos Martins</b><small>Barbeiro</small></li>
+        <li class="spot reveal"><span class="team__initial">J</span><b>João Vitor</b><small>Barbeiro</small></li>
+        <li class="spot reveal"><span class="team__initial">V</span><b>Victor</b><small>Barbeiro</small></li>
+        <li class="spot reveal"><span class="team__initial">G</span><b>Guilherme</b><small>Barbeiro</small></li>
+        <li class="spot reveal"><span class="team__initial">J</span><b>João</b><small>Barbeiro</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section class="reviews" id="avaliacoes">
+    <div class="wrap reviews__grid">
+      <div class="reviews__score">
+        <p class="eyebrow">Avaliações de clientes confirmados</p>
+        <h2 class="sec-title">Nota <span class="count" data-to="4.9" data-dec="1">4,9</span> em <span class="count" data-to="241" data-dec="0">241</span> avaliações.</h2>
+        <div class="stars" aria-label="4,9 de 5 estrelas">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.3 5.5 22l1.7-7.4L1.5 9.6 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.3 5.5 22l1.7-7.4L1.5 9.6 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.3 5.5 22l1.7-7.4L1.5 9.6 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.3 5.5 22l1.7-7.4L1.5 9.6 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18.3 5.5 22l1.7-7.4L1.5 9.6 9 8.9z"/></svg>
+        </div>
+        <ul class="badges">
+          <li>Recomendado pelo Booksy</li>
+          <li>Destaque Empreendedor</li>
+        </ul>
+      </div>
+      <div class="reviews__bars card">
+        <ul class="bars">
+          <li><span>5 ★</span><i><b data-w="95.9"></b></i><em>231</em></li>
+          <li><span>4 ★</span><i><b data-w="2.5"></b></i><em>6</em></li>
+          <li><span>3 ★</span><i><b data-w="0"></b></i><em>0</em></li>
+          <li><span>2 ★</span><i><b data-w="0.4"></b></i><em>1</em></li>
+          <li><span>1 ★</span><i><b data-w="1.2"></b></i><em>3</em></li>
+        </ul>
+        <p class="reviews__note">Só quem foi atendido pode avaliar no Booksy. Leia os comentários completos:</p>
+        <div class="reviews__links">
+          <a class="btn btn--red btn--sm" href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener">Avaliações no Booksy</a>
+          <a class="btn btn--ghost btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Barbearia+Martins+Av.+Shishima+Hifumi+2204+S%C3%A3o+Jos%C3%A9+dos+Campos" target="_blank" rel="noopener">Avaliações no Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="visit" id="local">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Como chegar</p>
+        <h2 class="sec-title">Avenida Shishima Hifumi, <span>2204 · Urbanova.</span></h2>
+      </div>
+      <div class="visit__grid">
+        <div class="visit__map">
+          <iframe title="Mapa interativo da Barbearia Martins no Google Maps" src="https://maps.google.com/maps?q=-23.20377,-45.9438499&amp;z=16&amp;hl=pt-BR&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="visit__info">
+          <div class="info-block">
+            <h3>Endereço</h3>
+            <p>Av. Shishima Hifumi, 2204 · Urbanova<br>Ao lado do Adegão<br>São José dos Campos · SP · 12244-000</p>
+            <a class="btn btn--red btn--sm magnetic" href="https://www.google.com/maps/dir/?api=1&amp;destination=-23.20377,-45.9438499" target="_blank" rel="noopener">Traçar rota</a>
+          </div>
+          <div class="info-block">
+            <h3>Horário</h3>
+            <ul class="hours">
+              <li><span>Segunda a sábado</span><b>9h às 20h</b></li>
+              <li><span>Domingo</span><b data-assumed>Fechado</b></li>
+            </ul>
+            <p class="small">Vagas livres em tempo real no Booksy.</p>
+          </div>
+          <div class="info-block">
+            <h3>Contato</h3>
+            <p><a class="link" href="https://wa.me/5512988654803?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Barbearia%20Martins." target="_blank" rel="noopener">WhatsApp (12) 98865-4803</a></p>
+            <div class="social">
+              <a href="https://www.instagram.com/barbeariamartinsurbanova/" target="_blank" rel="noopener" aria-label="Instagram da Barbearia Martins"><img class="ic-ink" src="assets/icons/instagram.svg" alt="" width="28" height="28"></a>
+              <a href="https://wa.me/5512988654803?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Barbearia%20Martins." target="_blank" rel="noopener" aria-label="WhatsApp da Barbearia Martins"><img src="assets/icons/whatsapp.svg" alt="" width="28" height="28"></a>
+              <a href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener" aria-label="Booksy da Barbearia Martins" class="social__txt">Booksy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FECHAMENTO -->
+  <section class="close" id="agendar">
+    <div class="wrap close__inner">
+      <div class="close__text">
+        <h2 class="close__title"><span>Seu próximo corte</span><span>está a um clique.</span></h2>
+        <a class="btn btn--red btn--lg magnetic" href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener">Agendar no Booksy</a>
+      </div>
+      <figure class="close__media">
+        <img src="assets/img/photo-f201493987-500.jpg" width="500" height="667" alt="Poste de barbeiro listrado preso a uma parede" loading="lazy" decoding="async" data-source="stand-in">
+      </figure>
+    </div>
+    <div class="pole" aria-hidden="true"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <img src="assets/img/logo-martins.jpg" alt="Logo da Barbearia Martins" width="72" height="72" loading="lazy">
+      <p>Barbearia Martins<br><span>Urbanova · São José dos Campos</span></p>
+    </div>
+    <nav class="foot__nav" aria-label="Rodapé">
+      <a href="#servicos">Serviços</a>
+      <a href="#ciencia">Ciência do fio</a>
+      <a href="#barba">Barba</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#local">Como chegar</a>
+    </nav>
+    <div class="foot__social">
+      <a href="https://www.instagram.com/barbeariamartinsurbanova/" target="_blank" rel="noopener"><img class="ic-ink" src="assets/icons/instagram.svg" alt="" width="22" height="22">Instagram</a>
+      <a href="https://wa.me/5512988654803" target="_blank" rel="noopener"><img src="assets/icons/whatsapp.svg" alt="" width="22" height="22">WhatsApp</a>
+      <!-- Facebook: adicionar quando a barbearia informar o link da página -->
+      <a href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener"><span class="foot__b" aria-hidden="true">b</span>Booksy</a>
+    </div>
+  </div>
+  <div class="wrap foot__base">
+    <p>© <span class="year">2026</span> Barbearia Martins</p>
+    <p><a class="credits" href="creditos.html">Créditos e licenças das fotos</a></p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Ações rápidas">
+  <a href="https://booksy.com/pt-br/331589_barbearia-martins_barbearias_1026706_sao-jose-dos-campos#ba_s=seo" target="_blank" rel="noopener" class="dock__main">Agendar</a>
+  <a href="https://wa.me/5512988654803?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Barbearia%20Martins." target="_blank" rel="noopener"><img src="assets/icons/whatsapp.svg" alt="" width="20" height="20">WhatsApp</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=-23.20377,-45.9438499" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-7.1 7-12.5A7 7 0 0 0 5 9.5C5 14.9 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Rota</a>
+</nav>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/motion.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
