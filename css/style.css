@@ -191,45 +191,115 @@ body.menu-open{overflow:hidden}
 }
 @media (max-width:639px){.services__cta .btn{width:100%}}
 
-/* ---------- ciência ---------- */
-.science{position:relative;background:var(--bg-2);padding:clamp(80px,12vw,140px) 0;border-top:1px solid var(--line)}
-.science__pin{display:grid;gap:40px;grid-template-columns:1fr}
-.science__progress{display:none}
-.chapters{display:grid;gap:48px;margin-top:40px}
-.chapter h3{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;text-transform:uppercase;margin-top:20px}
-.chapter p{color:var(--muted);margin-top:14px;max-width:52ch;font-size:1.05rem}
-.chapter__img{border-radius:50%;overflow:hidden;width:min(320px,80vw);aspect-ratio:1;border:2px solid var(--surface-2);box-shadow:0 0 0 6px rgba(192,26,38,.10);margin-left:6px}
-.chapter__img img{width:100%;height:100%;object-fit:cover}
-.lens{display:none}
-
-@media (min-width:1024px){
-  .science{padding:0}
-  .science__pin{grid-template-columns:1.05fr 1fr;align-items:center;min-height:100vh;padding-block:calc(var(--nav-h) + 32px) 48px;gap:64px}
-  .science__progress{display:flex;align-items:center;gap:14px;margin-top:28px;font-family:var(--display);font-size:1.2rem;color:var(--muted)}
-  .science__progress i{position:relative;width:140px;height:2px;background:var(--line)}
-  .science__progress b{position:absolute;inset:0;background:var(--red-hi);transform-origin:left;transform:scaleX(.25)}
-  .science__count{color:var(--ink)}
-  .chapters{position:relative;display:block;margin-top:24px;min-height:260px}
-  .chapter{position:absolute;inset:0 0 auto;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility .5s}
-  .chapter.is-active{opacity:1;visibility:visible;transform:none}
-  .chapter__img{display:none}
-  .chapter h3{margin-top:0}
-  .lens{display:block;position:relative;width:min(40vw,560px);aspect-ratio:1;justify-self:center}
-  .lens__view{position:absolute;inset:6%;border-radius:50%;overflow:hidden;clip-path:circle(50% at 50% 50%);background:#000}
-  .lens__view img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.15);transition:opacity .7s var(--ease),transform 1.4s var(--ease)}
-  .lens__view img.is-active{opacity:1;transform:scale(1)}
-  .lens__ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--line);background:
-    repeating-conic-gradient(from 0deg,rgba(244,237,230,.35) 0 .4deg,transparent .4deg 6deg);
-    -webkit-mask:radial-gradient(circle,transparent 66%,#000 66.5%,#000 69%,transparent 69.5%);
-            mask:radial-gradient(circle,transparent 66%,#000 66.5%,#000 69%,transparent 69.5%)}
-  .lens::after{content:"";position:absolute;inset:4.5%;border-radius:50%;border:2px solid var(--red);box-shadow:0 0 60px rgba(192,26,38,.25)}
-  .lens__mag{position:absolute;right:2%;bottom:6%;font-family:var(--display);font-size:1.4rem;background:var(--red);color:#fff;padding:4px 12px;border-radius:99px}
-  .lens__cross{position:absolute;inset:6%;border-radius:50%;pointer-events:none;background:
-    linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)) center/1px 100% no-repeat,
-    linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)) center/100% 1px no-repeat}
-  .no-pin .chapters{display:grid;gap:40px;min-height:0}
-  .no-pin .chapter{position:static;opacity:1;visibility:visible;transform:none}
+/* ---------- chamada Martins Premium (index) ---------- */
+.btn--gold{background:#c9a24b;color:#14110b}
+.btn--gold::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn--gold:hover{background:#e0bb62}
+.btn--gold:hover::after{transform:translateX(120%)}
+.teaser{position:relative;padding:clamp(80px,12vw,140px) 0;background:radial-gradient(70% 90% at 100% 0%,rgba(201,162,75,.16),transparent 60%),#0d0b08;border-block:1px solid rgba(201,162,75,.28);overflow:hidden}
+.teaser .eyebrow{color:#e0bb62}
+.teaser .sec-title span{color:#cbbd9f}
+.teaser__grid{display:grid;gap:56px;grid-template-columns:1fr;align-items:center}
+.teaser__list{margin-top:28px;max-width:460px}
+.teaser__list li{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px dashed rgba(201,162,75,.32)}
+.teaser__list li:last-child{border-bottom:1px dashed rgba(201,162,75,.32)}
+.teaser__list b{font-weight:700}
+.teaser__list span{font-family:var(--display);font-size:1.8rem;line-height:1;color:#e0bb62}
+.teaser__rating{margin-top:18px;color:var(--muted);font-size:.95rem}
+.teaser__stars{color:#e0bb62;letter-spacing:2px;margin-right:6px}
+.teaser__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.teaser__media{position:relative;display:block;margin-bottom:28px}
+.teaser__photo{border-radius:22px;overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(201,162,75,.4);background:var(--surface)}
+.teaser__photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.teaser__media:hover .teaser__photo img{transform:scale(1.03)}
+.teaser__badge{position:absolute;left:-18px;bottom:-30px;width:118px;height:auto;border-radius:18px;border:2px solid #c9a24b;box-shadow:0 24px 50px -16px rgba(0,0,0,.8)}
+@media (min-width:1024px){.teaser__grid{grid-template-columns:1fr 1.05fr;gap:80px}}
+@media (max-width:639px){
+  .teaser__actions .btn{width:100%}
+  .teaser__badge{width:84px;left:12px;bottom:-24px;border-radius:14px}
 }
+
+/* ---------- tema Martins Premium (premium.html): preto, dourado e creme ---------- */
+.premium{--bg:#0b0a08;--bg-2:#12100c;--surface:#18150f;--surface-2:#241e14;--line:rgba(243,239,232,.10);--ink:#f5f1ea;--muted:#b9ae9b;--red:#c9a24b;--red-hi:#e0bb62;--wine:#3b2f17;--wine-2:#17120a;--cream:#f3efe8;--cream-ink:#14110b}
+.premium .btn--red,.premium .skip,.premium .dock__main{color:#14110b!important}
+.premium .marquee{color:#14110b;border-color:rgba(0,0,0,.2)}
+.premium .marquee i{background:repeating-linear-gradient(-45deg,#14110b 0 5px,#f3efe8 5px 10px)}
+.premium .card--red{background:linear-gradient(160deg,#3b2f17,#17120a);border-color:rgba(201,162,75,.4)}
+.premium .card--red .price small{color:rgba(243,239,232,.75)}
+.premium .price span{color:var(--red-hi)}
+.premium .nav__brand img{border-radius:10px;width:40px;height:47px;box-shadow:none}
+.premium .hero__media img{filter:grayscale(1) contrast(1.08) brightness(.9)}
+.premium .hero__shade{background:linear-gradient(180deg,rgba(11,10,8,.7) 0%,rgba(11,10,8,.3) 35%,rgba(11,10,8,.88) 78%,var(--bg) 100%),radial-gradient(70% 60% at 0% 100%,rgba(201,162,75,.28),transparent 70%)}
+.premium .stars svg{fill:var(--red-hi)}
+.premium .pole{background:repeating-linear-gradient(-35deg,#c9a24b 0 14px,#14110b 14px 28px,#f3efe8 28px 42px,#14110b 42px 56px);background-size:100% 140px}
+.premium .close{background:radial-gradient(90% 120% at 0% 100%,#3b2f17,#17120a 60%,#0b0a08)}
+
+/* sobre */
+.about{padding:clamp(80px,12vw,140px) 0;background:var(--bg)}
+.about__grid{display:grid;gap:48px;grid-template-columns:1fr;align-items:center}
+.about__bio{font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.65;color:#e6dfd3;margin-top:22px;max-width:58ch}
+.about__bio::first-letter{font-family:var(--display);font-size:3.4em;float:left;line-height:.8;margin:.08em .1em 0 0;color:var(--red-hi)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chips li{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:99px;background:var(--surface);border:1px solid rgba(201,162,75,.3);font-weight:700;font-size:.9rem}
+.chips svg{width:18px;height:18px;fill:none;stroke:var(--red-hi);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.about__photo{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/3;border:1px solid rgba(201,162,75,.35)}
+.about__photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.about__photo:hover img{transform:scale(1.03)}
+.about__team{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;max-width:520px}
+.about__team li{display:flex;align-items:center;gap:12px;padding:14px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line)}
+.about__team .team__initial{width:48px;height:48px;margin:0;font-size:1.5rem;background:var(--red);color:#14110b;box-shadow:inset 0 0 0 3px var(--red),inset 0 0 0 5px #14110b;flex:none}
+.about__team b{display:block;font-size:.98rem;line-height:1.25}
+.about__team small{color:var(--muted);font-size:.78rem}
+@media (min-width:1024px){.about__grid{grid-template-columns:1.05fr 1fr;gap:72px}}
+@media (max-width:479px){.about__team{grid-template-columns:1fr}}
+
+/* kids */
+.kids{padding:clamp(80px,12vw,140px) 0 clamp(64px,8vw,100px);background:var(--cream);color:var(--cream-ink);overflow:hidden}
+.kids .eyebrow{color:#8a6a22}
+.kids .sec-title span,.kids .sec-lead{color:#6e6352}
+.kids__offers{display:grid;gap:16px;grid-template-columns:1fr;margin-top:8px}
+.offer{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:24px 26px;border-radius:var(--radius-lg);background:#fff;border:1px solid rgba(20,17,11,.08);transition:transform .3s var(--ease),box-shadow .3s}
+.offer:hover{transform:translateY(-2px);box-shadow:0 18px 40px -20px rgba(59,47,23,.4)}
+.offer b{display:block;font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1;text-transform:uppercase}
+.offer small{display:block;color:#6e6352;margin-top:6px}
+.offer span{font-family:var(--display);font-size:2.6rem;line-height:1;color:#8a6a22;white-space:nowrap}
+.offer.spot::before{background:radial-gradient(320px circle at var(--mx) var(--my),rgba(201,162,75,.18),transparent 60%)}
+.tips{margin-top:clamp(48px,6vw,72px)}
+.tips__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:24px}
+.tips__head h3{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;text-transform:uppercase}
+.tips__head p{color:#6e6352;font-size:.9rem}
+.tips__head a{color:#8a6a22;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.tips__track{display:grid;gap:14px;grid-template-columns:1fr}
+.tip{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:220px;padding:26px;border-radius:var(--radius-lg);background:#fff;border:1px solid rgba(201,162,75,.45);overflow:hidden}
+.tip__n{font-family:var(--display);font-size:4.4rem;line-height:.85;background:linear-gradient(180deg,#e0b44d,#7a5a1c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tip h4{margin:0;font-family:var(--display);font-weight:400;font-size:1.9rem;line-height:1;text-transform:uppercase}
+.tip p{margin:8px 0 0;color:#4d4436;font-size:1rem;line-height:1.5}
+.tip--photo{padding:0;border:0;min-height:340px;background:#14110b}
+.tip--photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;opacity:.88}
+.tip--photo .tip__body{position:relative;margin-top:auto;padding:26px;background:linear-gradient(0deg,rgba(11,10,8,.94),rgba(11,10,8,0));color:#f5f1ea}
+.tip--photo p{color:#e6dfd3}
+.tip--photo .tip__n{background:linear-gradient(180deg,#f0cc72,#b58a2f);-webkit-background-clip:text;background-clip:text}
+@media (min-width:768px){.kids__offers{grid-template-columns:1fr 1fr}.tips__track{grid-template-columns:1fr 1fr}}
+/* trilho horizontal fixado (só no computador, ativado pelo JS) */
+.tips--h .tips__track{display:flex;width:max-content;gap:20px}
+.tips--h .tip{width:min(380px,30vw);min-height:420px;flex:none}
+.tips--h .tip--photo{width:min(440px,34vw)}
+
+/* instagram */
+.insta{padding:clamp(80px,12vw,140px) 0;background:var(--bg-2);border-top:1px solid var(--line)}
+.insta__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.insta__grid a{position:relative;display:block;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;background:var(--surface);border:1px solid rgba(201,162,75,.25)}
+.insta__grid img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.insta__grid a:hover img{transform:scale(1.03)}
+.insta__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (min-width:1024px){.insta__grid{grid-template-columns:repeat(4,1fr);gap:16px}}
+@media (max-width:639px){.insta__cta .btn{width:100%}}
+.policy{margin-top:14px;padding:14px 16px;border-radius:12px;background:rgba(201,162,75,.08);border:1px solid rgba(201,162,75,.3);font-size:.88rem;color:#e6dfd3}
+.close__media--logo{aspect-ratio:480/560;max-width:320px;background:#000;border-color:rgba(201,162,75,.45)}
+.close__media--logo img{object-fit:contain}
+.premium .eyebrow .dot{background:var(--red-hi);animation:pinggold 2.4s infinite}
+@keyframes pinggold{0%{box-shadow:0 0 0 0 rgba(224,187,98,.6)}70%{box-shadow:0 0 0 10px rgba(224,187,98,0)}100%{box-shadow:0 0 0 0 rgba(224,187,98,0)}}
+.foot__also{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- barba ---------- */
 .beard{padding:clamp(80px,12vw,140px) 0;background:var(--bg)}

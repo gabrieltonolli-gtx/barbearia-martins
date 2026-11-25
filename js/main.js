@@ -102,7 +102,7 @@
   /* ---------- revelações com Motion ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if (M && M.inView && !reduced) {
-    M.inView('.services__grid, .team__list', function (info) {
+    M.inView('.services__grid, .team__list, [data-reveal-group]', function (info) {
       var items = (info.target || info).querySelectorAll('.reveal');
       M.animate(items, { opacity: [0, 1], y: [24, 0] },
         { duration: 0.7, delay: M.stagger(0.08), ease: [0.22, 1, 0.36, 1] });
@@ -134,27 +134,21 @@
   }
 
   /* ---------- GSAP ScrollTrigger ---------- */
-  if (!hasGsap || typeof window.ScrollTrigger === 'undefined') {
-    document.querySelector('.science').classList.add('no-pin');
-    return;
-  }
+  if (!hasGsap || typeof window.ScrollTrigger === 'undefined') return;
   var gsap = window.gsap;
   gsap.registerPlugin(window.ScrollTrigger);
+  function has(sel) { return !!document.querySelector(sel); }
   var mm = gsap.matchMedia();
 
   mm.add({ motion: '(prefers-reduced-motion: no-preference)', desktop: '(min-width: 1024px)' }, function (ctx) {
-    var c = ctx.conditions;
-    if (!c.motion) {
-      if (c.desktop) document.querySelector('.science').classList.add('no-pin');
-      return function () { document.querySelector('.science').classList.remove('no-pin'); };
-    }
+    if (!ctx.conditions.motion) return;
 
     /* parallax do hero */
-    gsap.to('.hero__media', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    if (has('.hero__media')) gsap.to('.hero__media', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
 
     /* marquee acelera com a rolagem */
     var track = document.querySelector('.marquee__track');
-    window.ScrollTrigger.create({
+    if (track) window.ScrollTrigger.create({
       trigger: '.marquee', start: 'top bottom', end: 'bottom top',
       onUpdate: function (self) {
         var v = Math.min(Math.abs(self.getVelocity()) / 800, 3);
@@ -162,47 +156,25 @@
       }
     });
 
-    /* foto de serviços com leve zoom de entrada */
-
     /* ritual da barba: linha listrada enche com a rolagem */
-    gsap.fromTo('.steps__line b', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.steps', start: 'top 80%', end: 'bottom 50%', scrub: true } });
-    gsap.from('.steps li', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.steps', start: 'top 85%', once: true } });
-    gsap.from('.beard__strip figure', { y: 40, autoAlpha: 0, duration: 0.9, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.beard__strip', start: 'top 90%', once: true } });
+    if (has('.steps')) {
+      if (has('.steps__line b')) gsap.fromTo('.steps__line b', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.steps', start: 'top 80%', end: 'bottom 50%', scrub: true } });
+      gsap.from('.steps li', { y: 24, autoAlpha: 0, duration: 0.8, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.steps', start: 'top 85%', once: true } });
+    }
+    if (has('.beard__strip')) gsap.from('.beard__strip figure', { y: 40, autoAlpha: 0, duration: 0.9, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '.beard__strip', start: 'top 90%', once: true } });
+
+    /* chamada da Martins Premium: foto se abre e o selo gira para o lugar */
+    if (has('.teaser')) {
+      gsap.fromTo('.teaser__photo', { clipPath: 'inset(12% 12% 12% 12% round 22px)' }, { clipPath: 'inset(0% 0% 0% 0% round 22px)', ease: 'none', scrollTrigger: { trigger: '.teaser', start: 'top 85%', end: 'center center', scrub: true } });
+      gsap.from('.teaser__badge', { rotate: -120, scale: 0.4, autoAlpha: 0, duration: 1.2, ease: 'back.out(1.6)', scrollTrigger: { trigger: '.teaser', start: 'top 60%', once: true } });
+      gsap.from('.teaser__list li', { x: -20, autoAlpha: 0, duration: 0.7, stagger: 0.08, ease: 'expo.out', scrollTrigger: { trigger: '.teaser__list', start: 'top 85%', once: true } });
+    }
 
     /* fechamento: título entra linha a linha */
-    gsap.from('.close__title span', { yPercent: 60, autoAlpha: 0, duration: 1, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: '.close', start: 'top 70%', once: true } });
+    if (has('.close__title')) gsap.from('.close__title span', { yPercent: 60, autoAlpha: 0, duration: 1, stagger: 0.12, ease: 'expo.out', scrollTrigger: { trigger: '.close', start: 'top 70%', once: true } });
 
-    if (c.desktop) {
-      /* ciência: seção fixada, a lente troca de imagem a cada capítulo */
-      var chapters = gsap.utils.toArray('.chapter');
-      var lensImgs = gsap.utils.toArray('.lens__view img');
-      var countEl = document.querySelector('.science__count');
-      var bar = document.querySelector('.science__progress b');
-      var current = 0;
-      function setChapter(i) {
-        if (i === current) return;
-        chapters[current].classList.remove('is-active'); lensImgs[current].classList.remove('is-active');
-        chapters[i].classList.add('is-active'); lensImgs[i].classList.add('is-active');
-        countEl.textContent = '0' + (i + 1);
-        current = i;
-      }
-      var st = window.ScrollTrigger.create({
-        trigger: '.science', start: 'top top', end: '+=' + (chapters.length * 70) + '%',
-        pin: true, scrub: true, anticipatePin: 1,
-        onUpdate: function (self) {
-          var i = Math.min(chapters.length - 1, Math.floor(self.progress * chapters.length));
-          setChapter(i);
-          bar.style.transform = 'scaleX(' + Math.max(0.25, (self.progress * (chapters.length - 1) + 1) / chapters.length) + ')';
-        }
-      });
-      gsap.to('.lens__ring', { rotate: 120, ease: 'none', scrollTrigger: { trigger: '.science', start: 'top top', end: function () { return st.end; }, scrub: true } });
-      gsap.from('.lens', { scale: 0.7, autoAlpha: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: '.science', start: 'top 70%', once: true } });
-      return function () { chapters.forEach(function (ch, i) { ch.classList.toggle('is-active', i === 0); }); lensImgs.forEach(function (im, i) { im.classList.toggle('is-active', i === 0); }); current = 0; };
-    } else {
-      gsap.utils.toArray('.chapter').forEach(function (ch) {
-        gsap.from(ch.querySelector('.chapter__img'), { scale: 0.6, autoAlpha: 0, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: ch, start: 'top 85%', once: true } });
-      });
-    }
+    /* gancho para animações próprias de cada página */
+    if (typeof window.pageMotion === 'function') return window.pageMotion(gsap, ctx.conditions);
   });
 
   window.addEventListener('load', function () { window.ScrollTrigger.refresh(); });

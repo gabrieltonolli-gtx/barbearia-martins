@@ -319,6 +319,49 @@
    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
    "page": "https://commons.wikimedia.org/wiki/File:Barberpole_of_Floyd%27s_Barbershop,_Irvine.jpg",
    "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f101285686.jpg",
+   "files": [
+    "photo-f101285686-500.jpg",
+    "photo-f101285686-960.jpg",
+    "photo-f101285686.jpg"
+   ],
+   "id": "f101285686",
+   "alt": "Barber shop, Quebec city, Canada",
+   "by": "Wilfredor",
+   "licence": "CC0",
+   "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:Barber_shop,_Quebec_city,_Canada.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f90406670.jpg",
+   "files": [
+    "photo-f90406670-500.jpg",
+    "photo-f90406670-960.jpg",
+    "photo-f90406670.jpg"
+   ],
+   "id": "f90406670",
+   "alt": "Kids car barber chair",
+   "by": "Sahil Shaikh",
+   "licence": "CC BY-SA 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Kids_car_barber_chair.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-f177774518-500.jpg",
+   "files": [
+    "photo-f177774518-500.jpg"
+   ],
+   "id": "f177774518",
+   "alt": "Toy car in hand",
+   "by": "Syedabdul01",
+   "licence": "CC BY 4.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Toy_car_in_hand.jpg",
+   "source": "Wikimedia Commons"
   }
  ]
 }
